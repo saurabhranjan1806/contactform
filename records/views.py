@@ -56,3 +56,16 @@ def edit(request,d,name):
     else:
         form=contactform(instance = n)
     return render(request, 'records/edit.html', {'formobj': form})
+
+
+def search(request):
+    if request.method== 'POST':
+        squery = request.POST['search_box']
+        if squery:
+            s = Info.objects.filter(firstName__icontains = squery)
+            if s:
+                return render(request, 'records/search.html',{'q':s})
+            else:
+                return render(request, 'records/notfound.html')
+        else:
+            return HttpResponseRedirect('/')

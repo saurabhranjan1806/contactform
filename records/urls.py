@@ -22,4 +22,5 @@ urlpatterns = [
     url(r'^contact/$', contact),
     url(r'^delete/(\d+)(\w+)/$', delete, name = 'delete'),
     url(r'^edit/(\d+)(\w+)/$', edit, name = 'edit'),
+    url(r'^search_query/$', search),
 ]

@@ -1,0 +1,19 @@
+{% extends 'records/header.html' %}
+
+{% block heading %}
+	Search Results
+{% endblock %}
+
+{% block content %}
+<table>
+
+
+<tr>
+{% for i in q %}
+First name:<a href="{% url 'detail' i.id %}">{{i.firstName}}</a> <br />
+Last name:{{i.lastName}}<br/><br/>
+</tr>
+<hr style="margin-left:1px" width="150px">
+</table>
+{% endfor %}
+{% endblock %}

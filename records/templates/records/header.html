@@ -9,9 +9,23 @@
 
 			{% endblock %}
 </center></h1>
+
+<div style="margin-left: 600px">
+	<form action="/search_query/" method="post">
+		{% csrf_token %}
+		<div>
+			<input type="text" name="search_box" placeholder="search" id="search_box">
+			<button type="submit">Search</button>
+		</div>
+	</form>
+</div>
+
+
 <div style="margin-left:500px">
 
 {% block content %}
 {% endblock %}
+</div>
+
 </body>
 </html>
