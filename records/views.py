@@ -5,6 +5,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from .models import *
 from .forms import *
+from django.db.models import Q
 # Create your views here.
 
 
@@ -62,7 +63,7 @@ def search(request):
     if request.method== 'POST':
         squery = request.POST['search_box']
         if squery:
-            s = Info.objects.filter(firstName__icontains = squery)
+            s = Info.objects.filter(Q(firstName__icontains = squery)| Q(lastName__icontains = squery))
             if s:
                 return render(request, 'records/search.html',{'q':s})
             else:
