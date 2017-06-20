@@ -1,0 +1,31 @@
+{% extends "records/header.html" %}
+
+
+{% block heading %}
+List of records
+{% endblock %}
+
+{% block content %}
+
+
+<table border="1">
+	<tr>
+		<th>First name</th>
+		<th>Last name</th>
+		<th colspan="2">Options</th>
+	</tr>
+	{% for i in record %}
+	<tr>
+		<td><a href="{% url 'detail' i.id %}">{{i.firstName}}</a></td>
+		<td>{{i.lastName}}</td>
+		<td><a href="{% url 'delete' i.id i.firstName %}">delete</a></td>
+		<td><a href="{% url 'edit' i.id i.firstName %}">edit</a></td>
+	</tr>
+	{% endfor %}
+
+</table>
+
+<br /><br />
+<a href="/contact/">contact form</a>
+
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "records/header.html" %}
+
+
+{% block heading %}
+	Details of {{ t.firstName }}
+{% endblock %}
+
+{% block content %}
+	First name:{{t.firstName}} <br />
+	Last name:{{t.lastName}}<br /><br />
+	<br /><br />
+	<a href="/">Home page</a>
+	<a href="/delete/{{t.id}}/{{t.first_name}}/">Delete</a>
+	<a href="/edit/{{t.id}}/{{t.first_name}}/">Edit</a>
+{% endblock %}
